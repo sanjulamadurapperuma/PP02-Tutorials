@@ -9,11 +9,11 @@ public class Cylinder {
         this.h = h;
     }
 
-    private double getVolume(double r, double h){
+    public double getVolume(){
         return Math.PI * Math.pow(r, 2) * h;
     }
 
-    private double getSurfaceArea(double r, double h){
+    public double getSurfaceArea(){
         return (2 *  Math.PI * r * h) + (2 * Math.PI + Math.pow(r, 2));
     }
 }

@@ -7,11 +7,11 @@ public class Cube {
         this.h = h;
     }
 
-    public double getVolume(double h){
+    public double getVolume(){
         return Math.pow(h, 3);
     }
 
-    public double getSurfaceArea(double h){
+    public double getSurfaceArea(){
         return 6 * Math.pow(h, 2);
     }
 }

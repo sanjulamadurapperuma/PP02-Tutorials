@@ -9,10 +9,10 @@ public class Cone {
         this.h = h;
     }
 
-    private double getVolume(double r, double h){
+    public double getVolume(){
         return Math.PI * Math.pow(r, 2) * (h / 3);
     }
-    private double getSurfaceArea(double r, double h){
+    public double getSurfaceArea(){
         return Math.PI * r * (r + Math.sqrt(Math.pow(h, 2) + Math.pow(r, 2)));
     }
 }

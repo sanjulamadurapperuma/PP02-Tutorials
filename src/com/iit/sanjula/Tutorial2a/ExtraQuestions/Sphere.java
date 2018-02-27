@@ -7,11 +7,11 @@ public class Sphere {
         this.r = r;
     }
 
-    private double getVolume(double r){
+    public double getVolume(){
         return (4 / 3) * Math.PI * Math.pow(r, 3);
     }
 
-    private double getSurfaceArea(double r){
+    public double getSurfaceArea(){
         return 4 * Math.PI * Math.pow(r, 2);
     }
 }
