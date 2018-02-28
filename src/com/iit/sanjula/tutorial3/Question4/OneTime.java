@@ -12,6 +12,6 @@ public class OneTime extends Appointment{
 
     @Override
     String getDescription() {
-        return null;
+        return description;
     }
 }

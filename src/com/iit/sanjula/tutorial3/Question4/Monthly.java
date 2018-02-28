@@ -12,6 +12,6 @@ public class Monthly extends Appointment{
 
     @Override
     String getDescription() {
-        return null;
+        return description;
     }
 }
