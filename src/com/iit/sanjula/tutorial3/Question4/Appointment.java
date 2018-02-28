@@ -27,4 +27,10 @@ public abstract class Appointment {
     abstract boolean occursOn(int year, int month, int day);
 
     abstract String getDescription();
+
+    @Override
+    public String toString() {
+        return "\nDescription : " + description + "\nDay : "
+                + day + "\nMonth : " + month + "\nYear : " + year;
+    }
 }
