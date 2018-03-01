@@ -1,5 +1,6 @@
-package com.iit.sanjula.tutorial3.Question5;
+package com.iit.sanjula.tutorial3.Question6;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -55,5 +56,30 @@ public class AppointmentTester {
             }
         }
         return result;
+    }
+
+    public void save(){
+        File file = new File("appointments.txt");
+        ArrayList<Appointment> appointments = new ArrayList<Appointment>();
+        for (Appointment appointment : appointments){
+            appointments.add(appointment);
+        }
+        try{
+            FileOutputStream fileOutputStream = new FileOutputStream(file);
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+            for (Appointment appointment : appointments){
+                objectOutputStream.writeObject(appointment);
+            }
+            objectOutputStream.close();
+            fileOutputStream.close();
+        } catch(FileNotFoundException ex){
+            System.out.printf("ERROR : %s\n" + ex);
+        } catch (IOException ex){
+            System.out.printf("ERROR : %s\n" + ex);
+        }
+    }
+
+    public void load(){
+        
     }
 }
