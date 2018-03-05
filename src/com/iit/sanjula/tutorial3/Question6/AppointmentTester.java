@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class AppointmentTester {
     public static List<Appointment> appointments = new ArrayList<Appointment>();
+    private File file = new File("appointments.txt");
     public static void main(String[] args){
         String description, continue2;
         int type, day, month, year;
@@ -59,7 +60,6 @@ public class AppointmentTester {
     }
 
     public void save(){
-        File file = new File("appointments.txt");
         ArrayList<Appointment> appointments = new ArrayList<Appointment>();
         for (Appointment appointment : appointments){
             appointments.add(appointment);
@@ -80,6 +80,28 @@ public class AppointmentTester {
     }
 
     public void load(){
-        
+        try {
+            FileInputStream fileInputStream = new FileInputStream(file);
+            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+            ArrayList<Appointment> appointments2 = new ArrayList<Appointment>();
+            try{
+                while(true){
+                    Appointment appointment = (Appointment)objectInputStream.readObject();
+                    appointments2.add(appointment);
+                }
+            } catch(ClassNotFoundException ex){
+                System.out.printf("ERROR : %s\n" + ex);
+            } catch(EOFException ex){
+            }
+            for(Appointment appointment : appointments2){
+                System.out.println(appointment);
+            }
+            objectInputStream.close();
+            fileInputStream.close();
+        } catch(FileNotFoundException ex){
+            System.out.printf("ERROR : %s\n" + ex);
+        } catch(IOException ex){
+            System.out.printf("ERROR : %s\n" + ex);
+        }
     }
 }
