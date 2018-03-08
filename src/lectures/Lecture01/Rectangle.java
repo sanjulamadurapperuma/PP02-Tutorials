@@ -1,5 +1,7 @@
 package lectures.Lecture01;
 
+import java.util.Objects;
+
 public class Rectangle implements Comparable<Rectangle>{
     private double length;
     private double width;
@@ -33,7 +35,31 @@ public class Rectangle implements Comparable<Rectangle>{
     }
 
     @Override
+    public String toString() {
+        return "Rectangle = [width = " + width + ", length = " + length + "]";
+    }
+
+    @Override
     public int compareTo(Rectangle o) {
         return (int) Math.round(this.getArea() - o.getArea());
+    }
+
+    ///add equals method
+
+    //
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Rectangle rectangle = (Rectangle) o;
+        return Double.compare(rectangle.length, length) == 0 &&
+                Double.compare(rectangle.width, width) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(length, width);
     }
 }
