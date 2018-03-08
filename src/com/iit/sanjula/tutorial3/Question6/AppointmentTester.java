@@ -14,51 +14,58 @@ public class AppointmentTester {
         Appointment appointment = null;
         int selectedOption;
         do {
-
+            Scanner scanner = new Scanner(System.in);
             selectedOption = displayMenu();
-            do {
-                String description;
-                int type, day, month, year;
-                Scanner scanner = new Scanner(System.in);
-                System.out.println("Please select the type of appointment you want to make : ");
-                System.out.println("Enter '1' for Daily Appointment");
-                System.out.println("Enter '2' for Monthly Appointment");
-                System.out.println("Enter '3' for One Time Appointment");
-                System.out.println("Enter '0' to exit");
-                System.out.println();
-                type = scanner.nextInt();
-                scanner.nextLine();//Flushing the next line
-                System.out.println("Enter Description : ");
-                description = scanner.nextLine();
-                System.out.println("Please enter the day : ");
-                day = scanner.nextInt();
-                System.out.println("Please enter the month : ");
-                month = scanner.nextInt();
-                System.out.println("Please enter the year : ");
-                year = scanner.nextInt();
-                if (type == 1) {
-                    appointment = new Daily(description, day);
-                } else if (type == 2) {
-                    appointment = new Monthly(description, day, month);
-                } else if (type == 3) {
-                    appointment = new OneTime(description, day, month, year);
-                } else if(type == 0){
-                    System.exit(0);
-                }
-                appointments.add(appointment);
-                System.out.println("Do you want to add another appointment? If yes, enter 'Yes', else 'No'");
-                continue2 = scanner.next();
-            }while (!continue2.equalsIgnoreCase("No"));
+            if (selectedOption == 1){
+                do {
+                    String description;
+                    int type, day, month, year;
+                    System.out.println("Please select the type of appointment you want to make : ");
+                    System.out.println("Enter '1' for Daily Appointment");
+                    System.out.println("Enter '2' for Monthly Appointment");
+                    System.out.println("Enter '3' for One Time Appointment");
+                    System.out.println("Enter '0' to exit");
+                    System.out.println();
+                    type = scanner.nextInt();
+                    scanner.nextLine();//Flushing the next line
+                    System.out.println("Enter Description : ");
+                    description = scanner.nextLine();
+                    System.out.println("Please enter the day : ");
+                    day = scanner.nextInt();
+                    System.out.println("Please enter the month : ");
+                    month = scanner.nextInt();
+                    System.out.println("Please enter the year : ");
+                    year = scanner.nextInt();
+                    if (type == 1) {
+                        appointment = new Daily(description, day);
+                    } else if (type == 2) {
+                        appointment = new Monthly(description, day, month);
+                    } else if (type == 3) {
+                        appointment = new OneTime(description, day, month, year);
+                    } else if(type == 0){
+                        System.exit(0);
+                    }
+                    appointments.add(appointment);
+                    System.out.println("Do you want to add another appointment? If yes, enter 'Yes', else 'No'");
+                    continue2 = scanner.next();
+                }while (!continue2.equalsIgnoreCase("No"));
+            } else if (selectedOption == 2){
+                System.out.println("Please enter the type of appointment you want to view.");
+                System.out.println("Enter '1' to view daily appointments");
+                System.out.println("Enter '2' to view monthly appointments");
+                System.out.println("Enter '3' to view one time appointments");
+            }
+
         }while (selectedOption !=0);
 
-        System.out.println("The appointments that are currently recorded are : ");
-        System.out.println(appointments);
+//        System.out.println("The appointments that are currently recorded are : ");
+//        System.out.println(appointments);
 //        System.out.println(occursOn(year, month, day));
     }
 
     public static int displayMenu(){
-        System.out.println("Enter '1' if you wish to view all the appointments that are recorded.");
-        System.out.println("Enter '2' if you wish to enter a new appointment");
+        System.out.println("Enter '1' if you wish to enter a new appointment");
+        System.out.println("Enter '2' if you wish to view all the appointments that are recorded.");
         System.out.println("Enter '0' to exit the program.");
         int selectedOption = getSelectedOption();
 

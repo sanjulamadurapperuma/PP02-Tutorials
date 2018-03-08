@@ -12,8 +12,9 @@ public class SelectionSort {
 
     public static void selectionSort(int[] arr){
         for (int i = 0; i < (arr.length - 1); i++){
-            int minIndex = i;
-            for (int j = i + 1; j < arr.length; j++){
+            int minIndex = i;//Min Index set to i which is 0
+            for (int j = i + 1; j < arr.length; j++){//j is one more than i and while j is less
+                                                    // than the length of the array, continue.
                 if(arr[j] < arr[minIndex]){
                     minIndex = j;
                 }
