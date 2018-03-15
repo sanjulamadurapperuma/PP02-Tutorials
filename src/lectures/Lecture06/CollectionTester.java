@@ -10,7 +10,7 @@ public class CollectionTester {
         //primitive data type = int, derived data type for it is = Integer
         //Collection doesn't support primitive data types.
         List<Integer> list = new ArrayList<Integer>();//this is generics
-        list.add(5);//nint will be autoboxed to Integer - autoboxing
+        list.add(5);//int will be autoboxed to Integer - autoboxing
         list.add(25);
         list.add(50);
         list.add(75);
@@ -77,6 +77,42 @@ public class CollectionTester {
         setRectangle = new TreeSet<>(setRectangle);
         System.out.println("=====Rectangle in HashSet=====");
         display(setRectangle);
+
+        //lecture 07
+        System.out.println("======ArrayList after sorting========");
+        Collections.sort(list);
+        display(list);
+
+        Map<String, Rectangle> map = new HashMap<String, Rectangle>();
+        //Map is an interface, an abstract class. We cannot create an object of an interface.
+        //Interface is polymorphism, not inheritance.
+        System.out.println("====HashMap====");
+        System.out.println(map.put("Rec01", new Rectangle(25, 25)));
+        System.out.println(map.put("Rec02", new Rectangle(30, 25)));
+        System.out.println(map.put("Rec03", new Rectangle(25, 35)));
+        System.out.println(map.put("Rec04", new Rectangle(20, 25)));
+        System.out.println(map.put("Rec05", new Rectangle(25, 33)));
+        System.out.println(map.put("Rec05", new Rectangle(23, 33)));
+        System.out.println("Map size : " + map.size());
+        System.out.println("=========Iterating the hash map using the keySet()==========");
+        for (String key : map.keySet()){
+            System.out.println(key + " : " + map.get(key));
+        }
+
+        System.out.println();
+        System.out.println("=========Iterating the hash map using the entrySet()==========");
+        //entry is an inner interface of map
+        for (Map.Entry<String, Rectangle> entry : map.entrySet()){
+            System.out.println(entry.getKey() + " : " + entry.getValue());
+        }
+
+        map = new TreeMap(map);
+        System.out.println();
+        System.out.println("=========Iterating the tree map using the entrySet()==========");
+        //entry is an inner interface of map
+        for (Map.Entry<String, Rectangle> entry : map.entrySet()){
+            System.out.println(entry.getKey() + " : " + entry.getValue());
+        }
     }
 
 //    public static void display(List<Integer> list){
@@ -90,4 +126,16 @@ public class CollectionTester {
             System.out.println(item);
         }
     }
+
+    //lecture 07
+    /*
+    * public static void display(List<Integer> list){
+
+    }
+    public static void display(List<Object> list){
+
+    }
+    * This is where we need wildcard (?)
+    * */
+
 }
