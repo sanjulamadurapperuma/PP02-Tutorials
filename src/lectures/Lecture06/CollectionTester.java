@@ -108,7 +108,7 @@ public class CollectionTester {
 
         map = new TreeMap(map);
         System.out.println();
-        
+
         System.out.println("=========Iterating the tree map using the entrySet()==========");
         //entry is an inner interface of map
         for (Map.Entry<String, Rectangle> entry : map.entrySet()){
