@@ -1,52 +1,15 @@
-package lectures.Lecture08;
+package com.iit.sanjula.Tutorial8;
 
 public class LinkedList {
+
     private Node head;
     private int size;
 
-    public LinkedList(Node head, int size) {
-        this.head = head;
-        this.size = size;
+    public LinkedList() {
+        super();
+        this.head = null;
+        this.size = 0;
     }
-
-//    public boolean empty(){
-//        return head == null;
-//    }
-//
-//    public int size(){
-//        return size;
-//    }
-//
-//    public void insertAtHead(int data){
-//        Node newNode = new Node(data, head);//to create a new node
-//        head = newNode;//inserts at head
-//        size++;
-//    }
-
-//    public int deleteAtHead(){
-//        if(empty()){
-//            throw new IllegalOperationException(
-//                    "Cannot traverse through data from an empty Linked List");
-//        }
-//        Node deletedNode = head;
-//        head = head.getLink();
-//        size--;
-//        return deletedNode.getData();
-//    }
-//
-//    public void traverse(){
-//        if (empty()){
-//            throw new IllegalOperationException(
-//                    "Cannot traverse through data from an empty LinkedList");
-//        }
-//
-//        Node current = head;
-//
-//        while(current != null){
-//            System.out.println(current.getData());
-//            current = current.getLink();
-//        }
-//    }
 
     public boolean empty(){
         return head == null;
@@ -55,6 +18,20 @@ public class LinkedList {
     public int size(){
         return size;
     }
+
+    public int getIndex(int index){
+        Node First = head;
+
+        if(index >= size || index < 0){
+            throw new IllegalOperationException(
+                    "The index is out of bounds");
+        }
+
+        if(index <= size && index >= 0){
+//            for(int i = 0; i < index)
+        }
+        return index;
+    }//Check this method
 
     public void insertAtHead(int data){
         Node newNode = new Node(data, head);//to create a new node
@@ -169,12 +146,5 @@ public class LinkedList {
 
     }
 
-//    public int insertAtIndex(Node node, int pos){
-//        if(empty()){
-//            throw new IllegalOperationException(
-//                    "Cannot insert index since linked list is empty");
-//        } else{
-//            Node current = head
-//        }
-//    }
+
 }
