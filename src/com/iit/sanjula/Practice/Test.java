@@ -14,8 +14,9 @@ public class Test {
         for (int i = 0; i < list.size(); i++){
             if (list.get(i).equals(element)){
                 list.remove(element);
+                i--;
             }
         }
-
+        System.out.println(list);
     }
 }
